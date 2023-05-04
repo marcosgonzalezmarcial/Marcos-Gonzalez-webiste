@@ -1,5 +1,5 @@
 {
-  "name": "Marcos.website.1.0",
+  "name": "Marcos-Gonzalez-portfolio-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,10 +15,15 @@
     "@types/react-dom": "18.0.9",
     "eslint": "8.30.0",
     "eslint-config-next": "13.2.4",
+    "framer-motion": "^10.12.4",
     "next": "13.3.1",
     "next-sanity": "4.1.7",
+    "postcss": "^8.4.23",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^8.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "sanity": "3.9.0",
     "typescript": "4.9.4"
   }
