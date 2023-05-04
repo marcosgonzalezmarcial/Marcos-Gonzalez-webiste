@@ -1,14 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import "./About.module.css";
 
-import "./About.module.scss";
-// import { urlFor, client } from "../../client";
 import AppWrap from "app/wrapper/AppWrap";
 import MotionWrap from "app/wrapper/MotionWrap";
+import { getAbouts } from "../../../sanity/sanity-utils";
 
-const About = () => {
-  const [abouts, setAbouts] = useState([]);
+const About = async () => {
+  // const [abouts, setAbouts] = useState([]);
+  const abouts = await getAbouts();
 
   //   useEffect(() => {
   //     const query = '*[_type == "abouts"]';

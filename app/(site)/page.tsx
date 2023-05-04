@@ -12,8 +12,8 @@ export default async function HomePage() {
     <div className={globalStyles.app}>
       <Navbar />
       <Header />
-      {/* <About />
-      <Work />
+      <About />
+      {/* <Work />
       <Skills />
       <Testimonial />
       <Footer /> */}
