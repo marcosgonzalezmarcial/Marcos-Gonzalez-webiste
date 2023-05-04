@@ -11,6 +11,8 @@ const About = async () => {
   // const [abouts, setAbouts] = useState([]);
   const abouts = await getAbouts();
 
+  console.log(abouts.at(0));
+
   //   useEffect(() => {
   //     const query = '*[_type == "abouts"]';
 
@@ -35,7 +37,8 @@ const About = async () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            {/* <img src={urlFor(about.imgUrl)} alt={about.title} /> */}
+            {about.image && <img src={about.imageUrl} alt={about.title} />}
+
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
