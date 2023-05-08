@@ -3,7 +3,7 @@ import SocialMedia from "@/components/SocialMedia";
 import globalStyles from "@/styles/globalStyles.module.css";
 
 export default function AppWrap(
-  Component: React.ElementType,
+  Component: React.ElementType ,
   idName: string,
   classNames: string
 ) {
@@ -15,6 +15,7 @@ export default function AppWrap(
       >
         <SocialMedia />
         <div
+          data-test="data-test"
           className={`${globalStyles.app__wrapper} ${globalStyles.app__flex}`}
         >
           <Component />

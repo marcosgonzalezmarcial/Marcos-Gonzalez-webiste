@@ -1,7 +1,11 @@
+"use client";
 import { motion } from "framer-motion";
 import globalStyles from "@/styles/globalStyles.module.css";
 
-const MotionWrap = (Component, classNames) =>
+const MotionWrap = (
+  Component: React.ElementType,
+  classNames: string
+) =>
   function HOC() {
     return (
       <motion.div

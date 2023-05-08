@@ -1,48 +1,40 @@
 "use client";
-// import React, { useState, useEffect } from "react";
+
 import { motion } from "framer-motion";
-import "./About.module.css";
+import aboutStyles from "./About.module.css";
+import globalStyles from "@/styles/globalStyles.module.css";
 
 import AppWrap from "app/wrapper/AppWrap";
 import MotionWrap from "app/wrapper/MotionWrap";
 import { getAbouts } from "../../../sanity/sanity-utils";
 
 const About = async () => {
-  // const [abouts, setAbouts] = useState([]);
   const abouts = await getAbouts();
 
   console.log(abouts.at(0));
 
-  //   useEffect(() => {
-  //     const query = '*[_type == "abouts"]';
-
-  //     client.fetch(query).then((data) => {
-  //       setAbouts(data);
-  //     });
-  //   }, []);
-
   return (
     <>
-      <h2 className="head-text">
+      <h2 className={globalStyles.headText}>
         I Know that <span>Good Design</span> <br />
         means <span>Good Business</span>
       </h2>
 
-      <div className="app__profiles">
-        {abouts.map((about, index) => (
+      <div className={aboutStyles.app__profiles}>
+        {abouts.map((about) => (
           <motion.div
             whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
-            className="app__profile-item"
-            key={about.title + index}
+            className={aboutStyles.app__profileItem}
+            key={about._id}
           >
             {about.image && <img src={about.imageUrl} alt={about.title} />}
 
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
+            <h2 className={globalStyles.boldText} style={{ marginTop: 20 }}>
               {about.title}
             </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
+            <p className={globalStyles.pText} style={{ marginTop: 10 }}>
               {about.description}
             </p>
           </motion.div>
@@ -53,7 +45,7 @@ const About = async () => {
 };
 
 export default AppWrap(
-  MotionWrap(About, "app__about"),
+  MotionWrap(About, aboutStyles.app__about),
   "about",
-  "app__whitebg"
+  globalStyles.app__whitebg
 );
