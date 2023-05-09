@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import aboutStyles from "./About.module.css";
 import globalStyles from "@/styles/globalStyles.module.css";
-
 import AppWrap from "app/wrapper/AppWrap";
 import MotionWrap from "app/wrapper/MotionWrap";
 import { getAbouts } from "../../../sanity/sanity-utils";
@@ -11,7 +10,7 @@ import { getAbouts } from "../../../sanity/sanity-utils";
 const About = async () => {
   const abouts = await getAbouts();
 
-  console.log(abouts.at(0));
+  // console.log(abouts);
 
   return (
     <>

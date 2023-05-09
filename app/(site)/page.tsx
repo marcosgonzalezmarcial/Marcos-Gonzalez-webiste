@@ -3,6 +3,7 @@ import globalStyles from '@/styles/globalStyles.module.css'
 import Navbar from '@/components/Navbar'
 import Header from '@/components/Header'
 import About from '@/components/About'
+import Work from '@/components/Work'
 
 
 export default async function HomePage() {
@@ -13,10 +14,10 @@ export default async function HomePage() {
       <Navbar />
       <Header />
       <About />
-      {/* <Work />
-      <Skills />
-      <Testimonial />
-      <Footer /> */}
+      <Work />
+      {/* <Skills /> */}
+      {/* <Testimonial /> */}
+      {/* <Footer /> */}
   </div>
   )
 
