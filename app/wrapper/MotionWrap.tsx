@@ -2,10 +2,13 @@
 import { motion } from "framer-motion";
 import globalStyles from "@/styles/globalStyles.module.css";
 
-const MotionWrap = (
-  Component: React.ElementType,
-  classNames: string
-) =>
+type ReturnType = Promise<JSX.Element> | JSX.Element | React.ElementType;
+
+type TypedComponent = {
+  Component: <T>() => T;
+};
+
+const MotionWrap = (Component: React.Element, classNames: string) =>
   function HOC() {
     return (
       <motion.div

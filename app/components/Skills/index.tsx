@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { Fragment } from "react";
 import { motion } from "framer-motion";
-import config from "../../../sanity/config/client-config";
-import { createClient, groq } from "next-sanity";
 
 import AppWrap from "app/wrapper/AppWrap";
 import MotionWrap from "app/wrapper/MotionWrap";
@@ -12,9 +10,9 @@ import { Tooltip } from "react-tooltip";
 import { getSkills } from "../../../sanity/sanity-utils";
 import { getExperiences } from "../../../sanity/sanity-utils";
 
-import "react-tooltip/dist/react-tooltip.css";
 import globalStyles from "@/styles/globalStyles.module.css";
 import skillsStyles from "./Skills.module.css";
+import Image from "next/image";
 
 async function Skills() {
   const experiences = await getExperiences();
@@ -38,7 +36,12 @@ async function Skills() {
                   className={globalStyles.app__flex}
                   style={{ backgroundColor: skill.bgColor }}
                 >
-                  <img src={skill.imageUrl} alt={skill.name} />
+                  <Image
+                    width={45}
+                    height={45}
+                    src={skill.imageUrl}
+                    alt={skill.name}
+                  />
                 </div>
                 <p className={globalStyles.pText}>{skill.name}</p>
               </motion.div>
@@ -47,7 +50,6 @@ async function Skills() {
         </motion.div>
         <div className={skillsStyles.app__skillsExp}>
           {experiences.map((experience) => {
-            // console.log(experience);
             return (
               <motion.div
                 className={skillsStyles.app__skillsExpItem}
@@ -58,32 +60,25 @@ async function Skills() {
                 </div>
                 <motion.div className={skillsStyles.app__skillsExpWorks}>
                   {experience.works.map((work) => {
-                    console.log(work);
                     return (
-                      <React.Fragment key={work._key}>
+                      <Fragment key={work._key}>
                         <motion.div
                           whileInView={{ opacity: [0, 1] }}
                           transition={{ duration: 0.5 }}
                           className={skillsStyles.app__skillsExpWork}
-                          data-tooltip-content={work.name}
+                          data-tooltip-content={work.desc}
                           data-tooltip-id={work.name}
                         >
                           <h4 className={globalStyles.boldText}>{work.name}</h4>
                           <p className={globalStyles.pText}>{work.company}</p>
                         </motion.div>
-                        {/* <ReactTooltip */}
+
                         <Tooltip
                           id={work.name}
-                          // effect="solid"
-                          // arrowColor="#fff"
                           content={work.desc}
-                          // className="skills-tooltip"
-                          // classNameArrow="skills-tooltip"
-                        >
-                          {work.name}
-                        </Tooltip>
-                        {/* </ReactTooltip> */}
-                      </React.Fragment>
+                          variant="info"
+                        />
+                      </Fragment>
                     );
                   })}
                 </motion.div>

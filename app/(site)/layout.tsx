@@ -1,4 +1,5 @@
 import '@/styles/global.css';
+import "react-tooltip/dist/react-tooltip.css";
 // import { getPages } from '@/sanity/sanity-utils';
 
 export const metadata = {
