@@ -1,4 +1,4 @@
-export type About = {
+export type Work = {
   _id: string;
   createdAt: Date;
   title: string;

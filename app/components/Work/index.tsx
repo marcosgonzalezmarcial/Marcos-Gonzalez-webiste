@@ -14,7 +14,7 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState<any>({ y: 0, opacity: 1 });
-  console.log(works);
+
   useEffect(() => {
     const fetchWorks = async () => await getWorks();
     fetchWorks().then((res) => {
